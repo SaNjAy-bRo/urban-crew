@@ -33,14 +33,14 @@ export default function Navbar() {
     <>
       <div className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
         {/* Top Banner */}
-        <div className={`bg-[#0A192F] text-slate-300 py-3 hidden md:block transition-all duration-500 ${scrolled ? 'h-0 py-0 opacity-0 overflow-hidden' : 'opacity-100'}`}>
-          <div className="container mx-auto px-4 md:px-8 flex justify-between items-center text-sm font-semibold tracking-wide">
-            <div className="flex items-center gap-2">
+        <div className={`bg-[#0A192F] text-slate-300 py-1.5 md:py-3 transition-all duration-500 ${scrolled ? 'h-0 py-0 opacity-0 overflow-hidden' : 'opacity-100'}`}>
+          <div className="container mx-auto px-2 sm:px-4 md:px-8 flex flex-col md:flex-row justify-center md:justify-between items-center text-[10px] sm:text-xs md:text-sm font-semibold tracking-wide gap-1 md:gap-0">
+            <div className="flex items-center gap-1.5 md:gap-2">
               <span className="text-[#3B82F6] font-bold">10+ Years</span> of Excellence in Bangalore
             </div>
-            <div className="flex gap-8">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#3B82F6]" /> 10-Year Unconditional Warranty
+            <div className="flex gap-4 md:gap-8">
+              <div className="flex items-center gap-1.5 md:gap-2">
+                <ShieldCheck className="w-3 h-3 md:w-4 md:h-4 text-[#3B82F6]" /> 10-Year Unconditional Warranty
               </div>
             </div>
           </div>
