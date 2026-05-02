@@ -58,12 +58,15 @@ export default function ReviewsMarquee() {
   }, []);
 
   return (
-    <section id="reviews" className="py-20 bg-[#F8FAFC] overflow-hidden relative">
-      <div className="container px-4 md:px-8 mb-12 relative z-10 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-4">
-          Trusted by 10,000+ Families
+    <section id="reviews" className="py-24 bg-[#0A192F] overflow-hidden relative border-t border-blue-900/50">
+      {/* Background Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#3B82F6]/10 blur-[100px] rounded-full z-0 pointer-events-none"></div>
+
+      <div className="container px-4 md:px-8 mb-16 relative z-10 text-center">
+        <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+          Trusted by <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-cyan-400">10,000+ Families</span>
         </h2>
-        <p className="text-xl text-slate-600 font-medium">Hear from our satisfied customers across Bangalore.</p>
+        <p className="text-xl text-blue-100/80 font-medium">Hear from our satisfied customers across Bangalore.</p>
       </div>
       <div
         className="relative z-10"
@@ -72,8 +75,8 @@ export default function ReviewsMarquee() {
         onTouchStart={() => { pauseRef.current = true; }}
         onTouchEnd={() => { pauseRef.current = false; }}
       >
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-48 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-48 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-48 bg-gradient-to-r from-[#0A192F] to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-48 bg-gradient-to-l from-[#0A192F] to-transparent z-20 pointer-events-none" />
         <div ref={scrollRef} className="flex gap-6 sm:gap-8 will-change-transform pb-8 pt-4 px-4">
           {[...reviews, ...reviews].map((r, i) => (
             <ReviewCard key={i} r={r} />

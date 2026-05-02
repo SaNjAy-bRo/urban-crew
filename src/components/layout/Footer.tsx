@@ -8,10 +8,21 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           
           <div className="space-y-6">
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="font-bold text-2xl tracking-tight text-white">
-                Urban <span className="text-[#3B82F6]">Invisible Grills</span>
-              </span>
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative w-10 h-10 bg-gradient-to-tr from-[#1E3A8A] to-[#3B82F6] rounded-full flex items-center justify-center shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-105 transition-all duration-300">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-black text-xl tracking-tight text-white leading-none group-hover:text-[#3B82F6] transition-colors">
+                  Urban<span className="text-[#3B82F6]">Grills</span>
+                </span>
+                <span className="text-[9px] font-bold text-slate-400 tracking-[0.2em] uppercase mt-1">
+                  Premium Safety
+                </span>
+              </div>
             </Link>
             <p className="text-slate-400 leading-relaxed font-medium">
               Bangalore's most trusted provider of premium invisible safety grills, mosquito nets, and artificial turf.
