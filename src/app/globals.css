@@ -131,5 +131,110 @@
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
+}
+
+/* Premium Animations */
+@keyframes kenburns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reviewScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-kenburns {
+  animation: kenburns 20s ease-out infinite alternate;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-review-scroll {
+  animation: reviewScroll var(--scroll-duration, 30s) linear infinite;
+}
+
+.animate-review-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar for review carousel */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Midnight Luxury Utilities */
+.bg-net {
+  background-image: 
+    linear-gradient(to right, rgba(200, 122, 84, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 122, 84, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.bg-net-animated {
+  background-image: 
+    linear-gradient(to right, rgba(200, 122, 84, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 122, 84, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: pan-net 30s linear infinite;
+}
+@keyframes pan-net {
+  from { background-position: 0 0; }
+  to { background-position: 50px 50px; }
+}
+
+.midnight-glass {
+  background: rgba(10, 25, 47, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(200, 122, 84, 0.15);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+.midnight-glass-solid {
+  background: rgba(17, 34, 64, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(200, 122, 84, 0.2);
+}
+
+.text-gradient-copper {
+  background: linear-gradient(135deg, #F8F9FA 0%, #C87A54 50%, #A0522D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant), serif;
+}
+
+.font-montserrat {
+  font-family: var(--font-montserrat), sans-serif;
 }
