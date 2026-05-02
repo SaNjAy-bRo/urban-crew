@@ -117,11 +117,11 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`lg:hidden fixed inset-0 top-[80px] bg-white/95 backdrop-blur-xl transition-all duration-300 z-30 border-t border-slate-100 ${
+        className={`lg:hidden fixed inset-0 top-0 bg-white transition-all duration-300 z-40 ${
           isOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-4'
         }`}
       >
-        <div className="flex flex-col h-full px-8 py-10 overflow-y-auto">
+        <div className="flex flex-col h-full px-8 pt-[140px] pb-10 overflow-y-auto">
           <nav className="flex flex-col space-y-2">
             {[
               { href: '/', label: 'Home' },
