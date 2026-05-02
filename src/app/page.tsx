@@ -11,26 +11,30 @@ const services = [
   {
     id: 'invisible-grills',
     title: 'Invisible Grills',
-    description: 'High-tensile stainless steel providing absolute security while preserving your views.',
+    subtitle: 'Safe & Stylish',
+    description: 'Elegant, durable, and completely safe — perfect for balconies and windows.',
     image: '/images/services/invisible-grills.jpeg',
   },
   {
-    id: 'mosquito-nets',
-    title: 'Mosquito Doors',
-    description: 'Premium mesh sliding systems engineered for seamless integration.',
-    image: '/images/services/mosquito_sliding-doors.jpeg',
+    id: 'anti-bird-netting',
+    title: 'Safety & Anti-Bird Netting',
+    subtitle: 'Strong & Durable',
+    description: 'Protect your home from birds and debris with invisible, sturdy netting solutions.',
+    image: '/images/services/anti-bird-netting.jpeg',
   },
   {
-    id: 'sports-nets',
-    title: 'Sports Enclosures',
-    description: 'Architectural-grade netting for residential and commercial sports facilities.',
+    id: 'cricket-sports-nets',
+    title: 'Cricket & Sports Nets',
+    subtitle: 'Rust-Proof & Reliable',
+    description: 'Durable nets for sports areas — custom installations for schools and apartments.',
     image: '/images/services/sports-cricket-net.jpeg',
   },
   {
-    id: 'artificial-grass',
-    title: 'Artificial Turf',
-    description: 'Lush, maintenance-free landscaping solutions for modern terraces.',
-    image: '/images/services/artificial_grass_turf.jpeg',
+    id: 'clothes-hangers',
+    title: 'Clothes Hangers',
+    subtitle: 'Smart & Space-Saving',
+    description: 'Space-saving and stylish retractable hanger systems for balconies.',
+    image: '/images/services/clothing-hanger.jpeg',
   }
 ];
 
@@ -56,18 +60,48 @@ export default function Home() {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (!mounted) return;
+
+    // Optimize video playback: only play videos when they are in the viewport to prevent lagging
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    // Give the DOM a tiny tick to render the videos before querying
+    const timer = setTimeout(() => {
+      const videos = document.querySelectorAll('.optimized-video');
+      videos.forEach((vid) => observer.observe(vid));
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [mounted]);
+
   if (!mounted) return null;
 
   return (
     <div className="flex flex-col w-full bg-white text-slate-800">
       
       {/* Ultra-Premium SaaS Hero Section */}
-      <section className="relative w-full pt-40 pb-24 md:pt-48 md:pb-32 flex items-center overflow-hidden bg-[#0A192F]">
+      <section className="relative w-full pt-32 pb-16 md:pt-48 md:pb-32 flex items-center overflow-hidden bg-[#0A192F]">
         {/* Background Image & Advanced Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           {/* Desktop Background (Wide) */}
           <Image
-            src="/images/hero-bg.jpg"
+            src="/images/hero-bg-day.png"
             alt="City Skyline"
             fill
             priority
@@ -75,7 +109,7 @@ export default function Home() {
           />
           {/* Mobile Background (Portrait/Vertical focused) */}
           <Image
-            src="/images/mobile-hero-bg.png"
+            src="/images/mobile-hero-bg-day.png"
             alt="Mobile Hero Balcony"
             fill
             priority
@@ -86,75 +120,66 @@ export default function Home() {
         </div>
 
         {/* Ambient Glow behind Form */}
-        <div className="absolute top-1/2 right-[10%] -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/20 blur-[120px] rounded-full z-10 pointer-events-none hidden lg:block"></div>
+        <div className="absolute top-1/2 right-[10%] -translate-y-1/2 w-[500px] h-[500px] bg-[#F97316]/20 blur-[120px] rounded-full z-10 pointer-events-none hidden lg:block"></div>
 
         <div className="container relative z-20 px-4 md:px-8 mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-12">
             
             {/* Left Content */}
-            <div className="w-full lg:w-3/5 text-white lg:-mt-6">
-              {/* Trust Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/20 backdrop-blur-md mb-8">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
-                </span>
-                <span className="text-sm font-bold text-blue-100 tracking-wide">Rated #1 in Bangalore</span>
-              </div>
+            <div className="w-full lg:w-3/5 text-white flex flex-col justify-center min-h-[calc(100svh-128px)] lg:min-h-0 lg:block lg:-mt-6">
 
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight mb-6 leading-[1.1]">
-                Invisible Safety, <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Visible Peace of Mind</span>
+              <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-8 sm:mb-6 leading-[1.1] sm:leading-[1.1]">
+                Secure Your Home.<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F97316] to-[#FB923C]">Preserve Your View.</span>
               </h1>
               
-              <p className="text-xl sm:text-2xl text-white mb-10 font-medium max-w-2xl leading-relaxed">
-                Premium 316-grade steel netting for modern homes. Protecting your family without compromising your view.
+              <p className="text-[16px] sm:text-lg md:text-xl text-blue-50 mb-10 sm:mb-10 font-medium max-w-2xl leading-relaxed">
+                Expert installation of premium invisible grills, bird netting, and balcony solutions across Bangalore. Uncompromised safety without ruining your aesthetics.
               </p>
               
-              {/* Modern Bullet Points */}
-              <div className="grid grid-cols-2 gap-y-4 gap-x-3 sm:gap-x-8 mb-10 text-[13px] sm:text-base md:text-lg font-medium text-white">
+              {/* Modern Bullet Points - Optimized 2-column grid for mobile */}
+              <div className="grid grid-cols-2 gap-y-6 gap-x-3 sm:gap-x-8 mb-12 sm:mb-10 text-[14px] sm:text-base md:text-lg font-medium text-white">
                 {[
                   { text: 'Same-Day Install', icon: '⚡' },
                   { text: '5,000+ Homes', icon: '🏆' },
-                  { text: 'Best Price Guarantee', icon: '💰' },
+                  { text: 'Best Price', icon: '💰' },
                   { text: '10-Year Warranty', icon: '🛡️' }
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2 sm:gap-4 group">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-full bg-blue-500/10 border border-blue-400/20 flex items-center justify-center text-sm sm:text-lg group-hover:bg-blue-500/20 transition-colors">
+                  <div key={idx} className="flex items-center gap-3 sm:gap-4 group">
+                    <div className="w-10 h-10 shrink-0 rounded-full bg-[#F97316]/15 border border-[#F97316]/30 flex items-center justify-center text-sm sm:text-lg group-hover:bg-[#F97316]/25 transition-colors">
                       {item.icon}
                     </div>
-                    <span className="leading-tight">{item.text}</span>
+                    <span className="leading-tight text-white/95">{item.text}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-5">
-                <a href="tel:+919902299696" className="flex items-center justify-center gap-3 bg-white text-[#0A192F] font-black px-8 py-4 rounded-xl hover:bg-slate-50 hover:scale-105 transition-all duration-300 shadow-[0_8px_30px_rgba(255,255,255,0.15)] text-lg border border-transparent">
+              {/* Action Buttons - Stacked vertically on mobile as requested */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 w-full">
+                <a href="tel:+919902299696" className="w-full sm:flex-1 flex items-center justify-center gap-2 bg-white text-[#0A192F] font-black px-4 py-4 sm:px-8 sm:py-4 rounded-xl hover:bg-slate-50 hover:scale-[1.02] transition-all duration-300 shadow-[0_8px_30px_rgba(255,255,255,0.15)] text-[17px] sm:text-lg border border-transparent">
                   <PhoneCall className="w-5 h-5 text-[#3B82F6]" /> Call Now
                 </a>
-                <a href="https://wa.me/919902299696" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 bg-[#25D366]/10 text-white font-bold px-8 py-4 rounded-xl hover:bg-[#25D366]/20 border border-[#25D366]/30 transition-all duration-300 text-lg backdrop-blur-sm group">
-                  <svg className="w-6 h-6 text-[#25D366] group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <a href="https://wa.me/919902299696" target="_blank" rel="noreferrer" className="w-full sm:flex-1 flex items-center justify-center gap-2 bg-[#25D366]/10 text-white font-bold px-4 py-4 sm:px-8 sm:py-4 rounded-xl hover:bg-[#25D366]/20 border border-[#25D366]/30 transition-all duration-300 text-[17px] sm:text-lg backdrop-blur-sm group hover:scale-[1.02]">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#25D366] group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                   WhatsApp Us
                 </a>
               </div>
             </div>
 
             {/* Right Form Area (Glassmorphism) */}
-            <div className="w-full lg:w-2/5 max-w-md mx-auto lg:ml-auto">
+            <div className="w-full lg:w-2/5 max-w-md mx-auto lg:ml-auto mt-12 sm:mt-16 lg:mt-0">
               <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8 sm:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#3B82F6] to-cyan-400"></div>
-                <h3 className="text-3xl font-black text-white mb-2 text-center">Get a Free Quote</h3>
-                <p className="text-blue-100 text-center mb-8 font-medium">Leave your details, we'll call you back instantly.</p>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F97316] to-[#FB923C]"></div>
+                <h3 className="text-3xl font-black text-white mb-8 text-center">Get a Free Quote</h3>
                 
                 <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
                   <div>
-                    <input type="text" placeholder="Your Name" className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:bg-white/10 transition-all font-medium" />
+                    <input type="text" placeholder="Your Name" className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-[#F97316] focus:bg-white/10 transition-all font-medium" />
                   </div>
                   <div>
-                    <input type="tel" placeholder="Your Phone Number" className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:bg-white/10 transition-all font-medium" />
+                    <input type="tel" placeholder="Your Phone Number" className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-[#F97316] focus:bg-white/10 transition-all font-medium" />
                   </div>
-                  <button className="w-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-black text-lg py-4 rounded-xl hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:scale-[1.02] transition-all duration-300 mt-4 border border-blue-400/50">
+                  <button className="w-full bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white font-black text-lg py-4 rounded-xl hover:shadow-[0_0_20px_rgba(249,115,22,0.6)] hover:scale-[1.02] transition-all duration-300 mt-4 border border-orange-400/50">
                     Request Call Back
                   </button>
                 </form>
@@ -167,7 +192,9 @@ export default function Home() {
 
       {/* Premium Services Section */}
       <section id="services" className="py-16 md:py-20 bg-[#F8FAFC] relative overflow-hidden">
-        <div className="container mx-auto px-4 md:px-8">
+        {/* Ambient Glow */}
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#F97316]/5 blur-[120px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-[#1E3A8A] mb-4 md:mb-6">Our Services</h2>
             <p className="text-lg md:text-xl text-slate-500 font-medium">Premium safety and netting solutions tailored for modern homes.</p>
@@ -185,12 +212,13 @@ export default function Home() {
                 {/* Content Overlay */}
                 <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
                   <div className="translate-y-0 md:translate-y-20 md:group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                    <h3 className="text-2xl font-black text-white mb-3">{service.title}</h3>
+                    <h3 className="text-2xl font-black text-white mb-1">{service.title}</h3>
+                    <p className="text-[#F97316] text-sm font-bold mb-3">{service.subtitle}</p>
                     <p className="text-blue-100/90 text-[15px] font-medium leading-relaxed opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 md:delay-100 mb-6">
                       {service.description}
                     </p>
-                    <button className="flex items-center justify-between w-full text-white font-bold text-sm bg-white/10 backdrop-blur-md px-6 py-3.5 rounded-2xl border border-white/20 md:hover:bg-white md:hover:text-[#2563EB] transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100">
-                      View Details <ArrowRight className="w-5 h-5" />
+                    <button className="flex items-center justify-between w-full text-white font-bold text-sm bg-white/10 backdrop-blur-md px-6 py-3.5 rounded-2xl border border-white/20 md:hover:bg-[#F97316] md:hover:text-white transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100">
+                      Learn More <ArrowRight className="w-5 h-5" />
                     </button>
                   </div>
                 </div>
@@ -201,18 +229,22 @@ export default function Home() {
       </section>
 
       {/* Mid-Page Slim CTA */}
-      <section className="bg-[#1E3A8A] py-8 md:py-10">
-        <div className="container px-4 md:px-8 mx-auto">
+      <section className="bg-[#1E3A8A] py-10 md:py-12 relative overflow-hidden">
+        {/* Decorative glowing orbs */}
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/20 blur-[80px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#F97316]/10 blur-[60px] rounded-full pointer-events-none translate-y-1/3 -translate-x-1/4"></div>
+        
+        <div className="container px-4 md:px-8 mx-auto relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="text-white text-center md:text-left flex-1">
-              <h2 className="text-3xl md:text-4xl font-bold mb-2">Ready to Secure Your Home?</h2>
-              <p className="text-blue-200 text-lg">Get a free site inspection and measurement today. No hidden costs.</p>
+              <h2 className="text-3xl md:text-4xl font-black mb-2">Ready to Secure Your Home?</h2>
+              <p className="text-blue-200 text-lg font-medium">Get a free site inspection and measurement today. No hidden costs.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-              <a href="tel:+919902299696" className="bg-white text-[#1E3A8A] font-bold px-8 py-3.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center justify-center gap-2 shadow-md">
-                <PhoneCall className="w-5 h-5 text-[#3B82F6]" /> Call +91 99022 99696
+              <a href="tel:+919902299696" className="bg-white text-[#1E3A8A] font-bold px-8 py-3.5 rounded-xl hover:bg-slate-50 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:-translate-y-0.5">
+                <PhoneCall className="w-5 h-5 text-[#F97316]" /> Call +91 99022 99696
               </a>
-              <a href="#contact" className="bg-[#3B82F6] text-white font-bold px-8 py-3.5 rounded-xl hover:bg-blue-500 transition-colors flex items-center justify-center shadow-md border border-blue-400/50">
+              <a href="#contact" className="bg-[#F97316] text-white font-bold px-8 py-3.5 rounded-xl hover:bg-[#EA580C] transition-all duration-300 flex items-center justify-center shadow-md hover:-translate-y-0.5">
                 Request Quote
               </a>
             </div>
@@ -230,82 +262,66 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {/* Real Video Player 1 */}
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md group border border-slate-200 bg-slate-100 flex items-center justify-center">
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-slate-900 group">
               <video 
                 src="/videos/invisible-grill-1.mp4" 
-                autoPlay 
-                loop 
-                muted 
+                muted
+                loop
                 playsInline
-                className="w-full h-full object-cover"
+                className="optimized-video w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent pointer-events-none"></div>
-              <div className="absolute bottom-5 left-6 right-6 text-white text-left z-10 pointer-events-none">
-                <div className="w-10 h-10 bg-[#2563EB]/90 rounded-full flex items-center justify-center mb-3 backdrop-blur-sm shadow-lg">
-                  <PlayCircle className="w-5 h-5 text-white" />
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500 pointer-events-none"></div>
+              <div className="absolute bottom-6 left-6 right-6 text-white text-left z-10 pointer-events-none md:translate-y-2 md:group-hover:translate-y-0 transition-transform duration-500">
                 <h3 className="text-xl md:text-2xl font-bold text-shadow-md leading-tight">High-Rise Balcony Grill Installation</h3>
-                <p className="font-medium text-slate-200 text-shadow-sm text-sm mt-1">Watch our team secure this open space.</p>
+                <p className="font-medium text-slate-300 text-shadow-sm text-sm mt-1">Watch our team secure this open space.</p>
               </div>
             </div>
 
             {/* Real Video Player 2 */}
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md group border border-slate-200 bg-slate-100 flex items-center justify-center">
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-slate-900 group">
               <video 
                 src="/videos/invisible-grill-2.mp4" 
-                autoPlay 
-                loop 
-                muted 
+                muted
+                loop
                 playsInline
-                className="w-full h-full object-cover"
+                className="optimized-video w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent pointer-events-none"></div>
-              <div className="absolute bottom-5 left-6 right-6 text-white text-left z-10 pointer-events-none">
-                <div className="w-10 h-10 bg-[#2563EB]/90 rounded-full flex items-center justify-center mb-3 backdrop-blur-sm shadow-lg">
-                  <PlayCircle className="w-5 h-5 text-white" />
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500 pointer-events-none"></div>
+              <div className="absolute bottom-6 left-6 right-6 text-white text-left z-10 pointer-events-none md:translate-y-2 md:group-hover:translate-y-0 transition-transform duration-500">
                 <h3 className="text-xl md:text-2xl font-bold text-shadow-md leading-tight">Safety Bird Netting Setup</h3>
-                <p className="font-medium text-slate-200 text-shadow-sm text-sm mt-1">Perfect fit for apartment complexes.</p>
+                <p className="font-medium text-slate-300 text-shadow-sm text-sm mt-1">Perfect fit for apartment complexes.</p>
               </div>
             </div>
 
             {/* Real Video Player 3 */}
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md group border border-slate-200 bg-slate-100 flex items-center justify-center">
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-slate-900 group">
               <video 
                 src="/videos/invisible-grill-3.mp4" 
-                autoPlay 
-                loop 
-                muted 
+                muted
+                loop
                 playsInline
-                className="w-full h-full object-cover"
+                className="optimized-video w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent pointer-events-none"></div>
-              <div className="absolute bottom-5 left-6 right-6 text-white text-left z-10 pointer-events-none">
-                <div className="w-10 h-10 bg-[#2563EB]/90 rounded-full flex items-center justify-center mb-3 backdrop-blur-sm shadow-lg">
-                  <PlayCircle className="w-5 h-5 text-white" />
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500 pointer-events-none"></div>
+              <div className="absolute bottom-6 left-6 right-6 text-white text-left z-10 pointer-events-none md:translate-y-2 md:group-hover:translate-y-0 transition-transform duration-500">
                 <h3 className="text-xl md:text-2xl font-bold text-shadow-md leading-tight">Premium Safety Deployment</h3>
-                <p className="font-medium text-slate-200 text-shadow-sm text-sm mt-1">Seamless, invisible, and durable.</p>
+                <p className="font-medium text-slate-300 text-shadow-sm text-sm mt-1">Seamless, invisible, and durable.</p>
               </div>
             </div>
 
             {/* Real Video Player 4 */}
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md group border border-slate-200 bg-slate-100 flex items-center justify-center">
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-slate-900 group">
               <video 
                 src="/videos/urban-invisible-grills-bg.mp4" 
-                autoPlay 
-                loop 
-                muted 
+                muted
+                loop
                 playsInline
-                className="w-full h-full object-cover"
+                className="optimized-video w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent pointer-events-none"></div>
-              <div className="absolute bottom-5 left-6 right-6 text-white text-left z-10 pointer-events-none">
-                <div className="w-10 h-10 bg-[#2563EB]/90 rounded-full flex items-center justify-center mb-3 backdrop-blur-sm shadow-lg">
-                  <PlayCircle className="w-5 h-5 text-white" />
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500 pointer-events-none"></div>
+              <div className="absolute bottom-6 left-6 right-6 text-white text-left z-10 pointer-events-none md:translate-y-2 md:group-hover:translate-y-0 transition-transform duration-500">
                 <h3 className="text-xl md:text-2xl font-bold text-shadow-md leading-tight">Artificial Grass Integration</h3>
-                <p className="font-medium text-slate-200 text-shadow-sm text-sm mt-1">Transforming an empty terrace.</p>
+                <p className="font-medium text-slate-300 text-shadow-sm text-sm mt-1">Transforming an empty terrace.</p>
               </div>
             </div>
           </div>
@@ -315,8 +331,9 @@ export default function Home() {
 
       {/* Why Choose Us (Redesigned with Image & Stats) */}
       <section id="why-us" className="relative py-16 md:py-24 bg-white overflow-hidden">
-        {/* Subtle Background Pattern */}
+        {/* Subtle Background Pattern & Glow */}
         <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#1E3A8A_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#F97316]/5 blur-[100px] rounded-full pointer-events-none translate-x-1/3 translate-y-1/3"></div>
         
         <div className="container relative z-10 px-4 md:px-8 mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 max-w-7xl mx-auto">
@@ -334,8 +351,8 @@ export default function Home() {
                 
                 {/* Floating Satisfaction Badge */}
                 <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-xl flex items-center gap-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center shrink-0">
-                    <Award className="w-6 h-6 text-green-600" />
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
+                    <Award className="w-6 h-6 text-[#3B82F6]" />
                   </div>
                   <div>
                     <div className="flex text-yellow-400 mb-1">
@@ -353,7 +370,7 @@ export default function Home() {
             {/* Right: Content & Stats */}
             <div className="w-full lg:w-1/2">
               <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-3 leading-tight">
-                Why <span className="text-[#2563EB]">Urban Grills?</span>
+                Why <span className="text-[#F97316]">Urban Crew?</span>
               </h2>
               <h3 className="text-xl md:text-2xl font-bold text-slate-700 mb-6 leading-snug">
                 Engineered for Safety, Designed for Style.
@@ -368,7 +385,7 @@ export default function Home() {
                   <div className="text-3xl md:text-4xl font-black text-[#1E3A8A] mb-1">5,000+</div>
                   <div className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Installations</div>
                 </div>
-                <div className="border-l-4 border-[#10B981] pl-4">
+                <div className="border-l-4 border-[#F97316] pl-4">
                   <div className="text-3xl md:text-4xl font-black text-[#1E3A8A] mb-1">10+</div>
                   <div className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Years Exp.</div>
                 </div>
@@ -393,7 +410,7 @@ export default function Home() {
                 ))}
               </div>
               
-              <a href="#contact" className="inline-flex items-center justify-center gap-2 bg-[#1E3A8A] text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-[#2563EB] hover:-translate-y-1 transition-all">
+              <a href="#contact" className="inline-flex items-center justify-center gap-2 bg-[#F97316] text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-[#EA580C] hover:-translate-y-1 transition-all">
                 Get Your Free Quote <ArrowRight className="w-4 h-4" />
               </a>
             </div>
@@ -410,14 +427,14 @@ export default function Home() {
       {/* FAQ Section (Premium Styling) */}
       <section id="faq" className="py-16 md:py-24 bg-[#F8FAFC] relative overflow-hidden">
         {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-200/30 rounded-full blur-[100px] opacity-50 pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-200/30 rounded-full blur-[80px] opacity-50 pointer-events-none translate-y-1/3 -translate-x-1/4"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#F97316]/10 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#3B82F6]/10 rounded-full blur-[80px] pointer-events-none translate-y-1/3 -translate-x-1/4"></div>
         
         <div className="container relative z-10 px-4 md:px-8 max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
             {/* FAQ Header */}
             <div className="w-full lg:w-1/3 text-center lg:text-left shrink-0">
-              <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100/80 text-blue-700 font-bold text-xs tracking-wider uppercase mb-6 shadow-sm border border-blue-200">
+              <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100/80 text-[#3B82F6] font-bold text-xs tracking-wider uppercase mb-6 shadow-sm border border-blue-200">
                 Got Questions?
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1E3A8A] mb-4 sm:mb-6 leading-[1.15]">
@@ -432,7 +449,7 @@ export default function Home() {
                 <div className="bg-white border border-slate-200/80 rounded-3xl p-6 md:p-8 shadow-sm">
                   <h4 className="font-bold text-[#1E3A8A] mb-2 text-lg">Still have questions?</h4>
                   <p className="text-sm text-slate-500 font-medium mb-6">Our team is ready to help you with a custom quote.</p>
-                  <a href="tel:+919902299696" className="flex items-center justify-center gap-2 bg-[#3B82F6] text-white font-bold px-5 py-3.5 rounded-xl shadow-[0_4px_14px_rgba(59,130,246,0.4)] hover:bg-[#2563EB] hover:-translate-y-0.5 transition-all text-sm w-full">
+                  <a href="tel:+919902299696" className="flex items-center justify-center gap-2 bg-[#F97316] text-white font-bold px-5 py-3.5 rounded-xl shadow-[0_4px_14px_rgba(249,115,22,0.4)] hover:bg-[#EA580C] hover:-translate-y-0.5 transition-all text-sm w-full">
                     <PhoneCall className="w-4 h-4" /> Call Us Today
                   </a>
                 </div>
@@ -458,8 +475,9 @@ export default function Home() {
         </div>
       </section>
       {/* Final CTA Section (Minimalist Strip) */}
-      <section className="py-8 md:py-12 bg-blue-50/50 border-t border-blue-100">
-        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+      <section className="py-8 md:py-12 bg-blue-50/50 border-t border-blue-100 relative overflow-hidden">
+        <div className="absolute left-0 bottom-0 w-[300px] h-[300px] bg-[#3B82F6]/5 blur-[80px] rounded-full pointer-events-none -translate-x-1/2 translate-y-1/2"></div>
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
             <div className="flex-1">
               <h2 className="text-2xl md:text-3xl font-black text-[#1E3A8A] mb-2">Ready to secure your home?</h2>
@@ -467,7 +485,7 @@ export default function Home() {
             </div>
             
             <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full md:w-auto">
-              <a href="tel:+919902299696" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#3B82F6] text-white px-6 py-3.5 rounded-xl font-bold shadow-md hover:bg-[#2563EB] hover:-translate-y-0.5 transition-all text-sm md:text-base">
+              <a href="tel:+919902299696" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#F97316] text-white px-6 py-3.5 rounded-xl font-bold shadow-md hover:bg-[#EA580C] hover:-translate-y-0.5 transition-all text-sm md:text-base">
                 <PhoneCall className="w-4 h-4" />
                 Call Now
               </a>

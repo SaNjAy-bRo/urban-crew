@@ -16,11 +16,8 @@ export default function Footer() {
                 </svg>
               </div>
               <div className="flex flex-col">
-                <span className="font-black text-xl tracking-tight text-white leading-none group-hover:text-[#3B82F6] transition-colors">
-                  Urban<span className="text-[#3B82F6]">Grills</span>
-                </span>
-                <span className="text-[9px] font-bold text-slate-400 tracking-[0.2em] uppercase mt-1">
-                  Premium Safety
+                <span className="font-black text-xl tracking-tight text-white leading-none group-hover:text-[#F97316] transition-colors">
+                  Urban <span className="text-[#F97316]">Crew</span>
                 </span>
               </div>
             </Link>
@@ -46,10 +43,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold text-lg mb-6">Contact Us</h4>
             <ul className="space-y-4 font-medium">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#3B82F6] shrink-0 mt-0.5" />
-                <span className="leading-relaxed">123 Safety Ave, Koramangala, Bangalore 560034</span>
-              </li>
+
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#3B82F6] shrink-0" />
                 <a href="tel:+919902299696" className="hover:text-[#3B82F6] transition-colors">+91 99022 99696</a>
@@ -84,7 +78,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-slate-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-medium text-slate-500">
-          <p>&copy; {new Date().getFullYear()} Urban Invisible Grills. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Urban Crew. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>

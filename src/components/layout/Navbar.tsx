@@ -34,13 +34,13 @@ export default function Navbar() {
       <div className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
         {/* Top Banner */}
         <div className={`bg-[#0A192F] text-slate-300 py-1.5 md:py-3 transition-all duration-500 ${scrolled ? 'h-0 py-0 opacity-0 overflow-hidden' : 'opacity-100'}`}>
-          <div className="container mx-auto px-2 sm:px-4 md:px-8 flex flex-col md:flex-row justify-center md:justify-between items-center text-[10px] sm:text-xs md:text-sm font-semibold tracking-wide gap-1 md:gap-0">
-            <div className="flex items-center gap-1.5 md:gap-2">
-              <span className="text-[#3B82F6] font-bold">10+ Years</span> of Excellence in Bangalore
+          <div className="container mx-auto px-2 sm:px-4 md:px-8 flex flex-row justify-center md:justify-between items-center text-[10px] sm:text-xs md:text-sm font-semibold tracking-wide gap-3 md:gap-0">
+            <div className="flex items-center gap-1.5 md:gap-2 whitespace-nowrap">
+              <span className="text-[#F97316] font-bold">10+ Years</span> of Excellence in Bangalore
             </div>
-            <div className="flex gap-4 md:gap-8">
+            <div className="hidden md:flex gap-4 md:gap-8">
               <div className="flex items-center gap-1.5 md:gap-2">
-                <ShieldCheck className="w-3 h-3 md:w-4 md:h-4 text-[#3B82F6]" /> 10-Year Unconditional Warranty
+                <ShieldCheck className="w-3 h-3 md:w-4 md:h-4 text-[#F97316]" /> 10-Year Unconditional Warranty
               </div>
             </div>
           </div>
@@ -65,10 +65,7 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-black text-xl tracking-tight text-slate-900 leading-none group-hover:text-[#1E3A8A] transition-colors">
-                    Urban<span className="text-[#3B82F6]">Grills</span>
-                  </span>
-                  <span className="text-[9px] font-bold text-slate-400 tracking-[0.2em] uppercase mt-1">
-                    Premium Safety
+                    Urban <span className="text-[#F97316]">Crew</span>
                   </span>
                 </div>
               </Link>
@@ -89,7 +86,7 @@ export default function Navbar() {
                   +91 99022 99696
                 </a>
                 <div className="w-px h-6 bg-slate-200"></div>
-                <a href="#contact" className="bg-[#1E3A8A] text-white font-bold px-6 py-2.5 rounded-full hover:bg-[#3B82F6] hover:shadow-[0_8px_20px_rgba(59,130,246,0.4)] transition-all duration-300 flex items-center gap-2 text-sm group">
+                <a href="#contact" className="bg-[#1E3A8A] text-white font-bold px-6 py-2.5 rounded-full hover:bg-[#F97316] hover:shadow-[0_8px_20px_rgba(249,115,22,0.4)] transition-all duration-300 flex items-center gap-2 text-sm group">
                   Get a Quote
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
@@ -97,7 +94,7 @@ export default function Navbar() {
 
               {/* Mobile Action Area */}
               <div className="flex items-center gap-3 lg:hidden">
-                <a href="tel:+919902299696" className="w-10 h-10 flex items-center justify-center bg-gradient-to-tr from-[#2563EB] to-[#3B82F6] rounded-full shadow-lg shadow-blue-500/30 hover:scale-105 transition-transform active:scale-95" aria-label="Call Now">
+                <a href="tel:+919902299696" className="w-10 h-10 flex items-center justify-center bg-gradient-to-tr from-[#EA580C] to-[#F97316] rounded-full shadow-lg shadow-orange-500/30 hover:scale-105 transition-transform active:scale-95" aria-label="Call Now">
                   <PhoneCall className="w-[18px] h-[18px] text-white" />
                 </a>
                 
@@ -150,7 +147,7 @@ export default function Navbar() {
               </div>
               99022 99696
             </a>
-            <a href="#contact" onClick={handleLinkClick} className="w-full bg-[#1E3A8A] text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-900/20 flex items-center justify-center gap-2 hover:bg-[#3B82F6] transition-colors text-lg">
+            <a href="#contact" onClick={handleLinkClick} className="w-full bg-[#1E3A8A] text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-900/20 flex items-center justify-center gap-2 hover:bg-[#F97316] transition-colors text-lg">
               Get a Free Quote
             </a>
           </div>
