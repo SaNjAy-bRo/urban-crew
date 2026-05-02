@@ -3,7 +3,7 @@ import { Star, Quote } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
 const reviews = [
-  { name: "Rahul Sharma", loc: "Whitefield", text: "Urban Crew did a fantastic job installing invisible grills in my 12th-floor apartment. The team was highly professional, and the view is completely unobstructed!", rating: 5 },
+  { name: "Rahul Sharma", loc: "Whitefield", text: "Urban Invisible Grills did a fantastic job installing in my 12th-floor apartment. The team was highly professional, and the view is completely unobstructed!", rating: 5 },
   { name: "Priya Desai", loc: "Indiranagar", text: "Got their mosquito sliding doors for my villa. The quality is premium and it slides so smoothly. Very happy with the service.", rating: 5 },
   { name: "Karthik N.", loc: "HSR Layout", text: "We installed artificial grass on our terrace. It totally transformed the space into a beautiful lounge area. Highly recommended!", rating: 5 },
   { name: "Ananya R.", loc: "Koramangala", text: "Best safety net installation in Bangalore. They finished in under 4 hours with zero mess. Our balcony looks stunning!", rating: 5 },
@@ -13,19 +13,19 @@ const reviews = [
 
 function ReviewCard({ r }: { r: typeof reviews[0] }) {
   return (
-    <div className="flex-shrink-0 w-[320px] sm:w-[380px] bg-white rounded-none p-8 sm:p-10 border border-[#C87A54]/20 hover:border-[#C87A54] hover:shadow-[0_10px_40px_rgba(200,122,84,0.15)] transition-all duration-500 group relative">
-      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#C87A54]/10 to-transparent pointer-events-none"></div>
-      <Quote className="w-8 h-8 text-[#C87A54]/50 mb-6 group-hover:text-[#C87A54] transition-colors" />
-      <p className="text-[#0A192F]/80 text-sm sm:text-base leading-relaxed mb-8 font-medium italic">"{r.text}"</p>
-      <div className="flex items-center gap-4 pt-6 border-t border-[#0A192F]/10">
-        <div className="w-12 h-12 rounded-full border border-[#C87A54]/30 flex items-center justify-center text-[#0A192F] font-cormorant text-2xl bg-[#C87A54]/10">{r.name[0]}</div>
+    <div className="flex-shrink-0 w-[320px] sm:w-[380px] bg-white rounded-2xl p-8 sm:p-10 border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300 group relative shadow-sm">
+      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-blue-50 to-transparent pointer-events-none rounded-tr-2xl"></div>
+      <Quote className="w-8 h-8 text-blue-200 mb-6 group-hover:text-[#3B82F6] transition-colors" />
+      <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-8 font-medium">"{r.text}"</p>
+      <div className="flex items-center gap-4 pt-6 border-t border-slate-100">
+        <div className="w-12 h-12 rounded-full flex items-center justify-center text-[#3B82F6] font-bold text-xl bg-blue-50">{r.name[0]}</div>
         <div>
-          <div className="font-cormorant text-[#0A192F] font-bold text-lg">{r.name}</div>
-          <div className="text-[#0A192F]/50 text-[10px] tracking-[0.2em] uppercase font-bold mt-1">{r.loc}</div>
+          <div className="font-bold text-slate-900 text-lg">{r.name}</div>
+          <div className="text-slate-500 text-[11px] tracking-wide font-semibold mt-0.5">{r.loc}</div>
         </div>
         <div className="ml-auto flex gap-1">
           {Array.from({ length: r.rating }).map((_, i) => (
-            <Star key={i} className="w-3.5 h-3.5 fill-[#C87A54] text-[#C87A54]" />
+            <Star key={i} className="w-4 h-4 fill-[#F59E0B] text-[#F59E0B]" />
           ))}
         </div>
       </div>
@@ -37,7 +37,7 @@ export default function ReviewsMarquee() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const animRef = useRef<number>(0);
   const posRef = useRef(0);
-  const speedRef = useRef(1); // pixels per frame (~60fps = ~60px/s)
+  const speedRef = useRef(1);
   const pauseRef = useRef(false);
 
   useEffect(() => {
@@ -58,15 +58,12 @@ export default function ReviewsMarquee() {
   }, []);
 
   return (
-    <section id="reviews" className="py-24 sm:py-32 bg-transparent overflow-hidden font-montserrat relative">
-      <div className="container px-4 md:px-8 mb-16 sm:mb-20 relative z-10">
-        <div className="flex items-center gap-4 mb-6">
-          <span className="w-12 h-px bg-[#C87A54]/50"></span>
-          <span className="text-[#C87A54] font-bold tracking-[0.3em] uppercase text-[10px]">Client Testimonials</span>
-        </div>
-        <h2 className="font-cormorant text-4xl sm:text-5xl md:text-7xl text-white tracking-tight">
-          Trusted by <span className="italic text-gradient-copper">10,000+</span> Facilities.
+    <section id="reviews" className="py-20 bg-[#F8FAFC] overflow-hidden relative">
+      <div className="container px-4 md:px-8 mb-12 relative z-10 text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-4">
+          Trusted by 10,000+ Families
         </h2>
+        <p className="text-xl text-slate-600 font-medium">Hear from our satisfied customers across Bangalore.</p>
       </div>
       <div
         className="relative z-10"
@@ -75,8 +72,8 @@ export default function ReviewsMarquee() {
         onTouchStart={() => { pauseRef.current = true; }}
         onTouchEnd={() => { pauseRef.current = false; }}
       >
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-48 bg-gradient-to-r from-[#0A192F] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-48 bg-gradient-to-l from-[#0A192F] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-48 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-48 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
         <div ref={scrollRef} className="flex gap-6 sm:gap-8 will-change-transform pb-8 pt-4 px-4">
           {[...reviews, ...reviews].map((r, i) => (
             <ReviewCard key={i} r={r} />

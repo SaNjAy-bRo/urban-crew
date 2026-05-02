@@ -3,71 +3,80 @@ import { MapPin, Phone, Mail, ShieldCheck } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A192F] text-[#F8F9FA] pt-24 pb-12 relative overflow-hidden font-montserrat border-t border-[#F8F9FA]/5">
-      {/* Subtle luxury gradient */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#C87A54]/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-      <div className="container relative z-10 mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+    <footer className="bg-[#1E293B] text-slate-300 py-16 border-t border-slate-800 font-sans">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           
-          <div className="lg:col-span-4 space-y-8 lg:pr-12">
-            <Link href="/" className="inline-block group">
-              <span className="font-cormorant font-bold text-[40px] tracking-tight text-white transition-colors">
-                Urban<span className="italic text-[#C87A54] transition-colors">Crew.</span>
+          <div className="space-y-6">
+            <Link href="/" className="flex items-center space-x-2">
+              <span className="font-bold text-2xl tracking-tight text-white">
+                Urban <span className="text-[#3B82F6]">Invisible Grills</span>
               </span>
             </Link>
-            <p className="text-[#F8F9FA]/50 text-base leading-relaxed font-light">
-              Elevating architectural integrity with premium, seamlessly integrated safety and netting solutions.
+            <p className="text-slate-400 leading-relaxed font-medium">
+              Bangalore's most trusted provider of premium invisible safety grills, mosquito nets, and artificial turf.
             </p>
+            <div className="flex items-center gap-2 text-white font-bold bg-[#3B82F6]/20 w-fit px-4 py-2 rounded-full text-sm">
+              <ShieldCheck className="w-4 h-4 text-[#3B82F6]" /> 10-Year Warranty Guaranteed
+            </div>
           </div>
 
-          <div className="lg:col-span-2">
-            <h3 className="font-bold text-[10px] mb-8 text-[#C87A54] uppercase tracking-[0.3em]">Explore</h3>
-            <ul className="space-y-4 text-sm text-[#F8F9FA]/60 font-light">
-              <li><Link href="/" className="hover:text-white transition-colors flex items-center gap-2">Home</Link></li>
-              <li><Link href="#why-us" className="hover:text-white transition-colors flex items-center gap-2">Why Us</Link></li>
-              <li><Link href="#services" className="hover:text-white transition-colors flex items-center gap-2">Catalog</Link></li>
-              <li><Link href="#contact" className="hover:text-white transition-colors flex items-center gap-2">Contact</Link></li>
+          <div>
+            <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
+            <ul className="space-y-4 font-medium">
+              <li><Link href="#about" className="hover:text-[#3B82F6] transition-colors">About Us</Link></li>
+              <li><Link href="#services" className="hover:text-[#3B82F6] transition-colors">Our Products</Link></li>
+              <li><Link href="#process" className="hover:text-[#3B82F6] transition-colors">Installation Process</Link></li>
+              <li><Link href="#faq" className="hover:text-[#3B82F6] transition-colors">FAQ</Link></li>
+              <li><Link href="#contact" className="hover:text-[#3B82F6] transition-colors">Contact</Link></li>
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
-            <h3 className="font-bold text-[10px] mb-8 text-[#C87A54] uppercase tracking-[0.3em]">Systems</h3>
-            <ul className="space-y-4 text-sm text-[#F8F9FA]/60 font-light">
-              <li><Link href="#invisible-grills" className="hover:text-white transition-colors">Invisible Grills</Link></li>
-              <li><Link href="#mosquito-nets" className="hover:text-white transition-colors">Mosquito Doors</Link></li>
-              <li><Link href="#sports-nets" className="hover:text-white transition-colors">Sports Enclosures</Link></li>
-              <li><Link href="#artificial-grass" className="hover:text-white transition-colors">Artificial Turf</Link></li>
+          <div>
+            <h4 className="text-white font-bold text-lg mb-6">Contact Us</h4>
+            <ul className="space-y-4 font-medium">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-[#3B82F6] shrink-0 mt-0.5" />
+                <span className="leading-relaxed">123 Safety Ave, Koramangala, Bangalore 560034</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-[#3B82F6] shrink-0" />
+                <a href="tel:+919902299696" className="hover:text-[#3B82F6] transition-colors">+91 99022 99696</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-[#3B82F6] shrink-0" />
+                <a href="mailto:info@urbaninvisiblegrills.com" className="hover:text-[#3B82F6] transition-colors">info@urbaninvisiblegrills.com</a>
+              </li>
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
-            <h3 className="font-bold text-[10px] mb-8 text-[#C87A54] uppercase tracking-[0.3em]">Concierge</h3>
-            <ul className="space-y-6 text-sm text-[#F8F9FA]/60 font-light">
-              <li className="flex gap-4 items-start group">
-                <MapPin className="h-5 w-5 text-[#C87A54] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                <span className="leading-relaxed">123 Corporate Blvd, <br/>Bangalore 560001</span>
-              </li>
-              <li className="flex gap-4 items-center group">
-                <Phone className="h-5 w-5 text-[#C87A54] shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="font-cormorant text-white text-2xl font-bold tracking-tight">+91 99005 51942</span>
-              </li>
-              <li className="flex gap-4 items-center group">
-                <Mail className="h-5 w-5 text-[#C87A54] shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="hover:text-white transition-colors cursor-pointer">concierge@urbancrew.com</span>
-              </li>
-            </ul>
+          <div>
+            <h4 className="text-white font-bold text-lg mb-6">Follow Us</h4>
+            <div className="flex items-center gap-4">
+              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#3B82F6] hover:text-white transition-colors" aria-label="Facebook">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+                </svg>
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#3B82F6] hover:text-white transition-colors" aria-label="Instagram">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
+                </svg>
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#3B82F6] hover:text-white transition-colors" aria-label="Twitter">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
-        
-        <div className="pt-8 border-t border-[#F8F9FA]/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2 text-[#F8F9FA]/30 text-[10px] uppercase tracking-widest font-bold">
-            <ShieldCheck className="w-4 h-4 text-[#C87A54]" />
-            &copy; {new Date().getFullYear()} Urban Crew Netting Solutions.
-          </div>
-          <div className="flex gap-8 text-[10px] tracking-[0.2em] uppercase font-bold text-[#F8F9FA]/30">
-            <Link href="#" className="hover:text-[#F8F9FA] transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-[#F8F9FA] transition-colors">Terms of Service</Link>
+
+        <div className="border-t border-slate-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-medium text-slate-500">
+          <p>&copy; {new Date().getFullYear()} Urban Invisible Grills. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

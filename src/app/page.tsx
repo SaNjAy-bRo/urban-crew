@@ -13,28 +13,24 @@ const services = [
     title: 'Invisible Grills',
     description: 'High-tensile 316 stainless steel providing absolute security while preserving your panoramic views.',
     image: '/images/services/invisible-grills.jpeg',
-    colSpan: 'col-span-1 md:col-span-2 lg:col-span-8',
   },
   {
     id: 'mosquito-nets',
     title: 'Mosquito Doors',
     description: 'Premium mesh sliding systems engineered for seamless integration.',
     image: '/images/services/mosquito_sliding-doors.jpeg',
-    colSpan: 'col-span-1 md:col-span-1 lg:col-span-4',
   },
   {
     id: 'sports-nets',
     title: 'Sports Enclosures',
     description: 'Architectural-grade netting for residential and commercial sports facilities.',
     image: '/images/services/sports-cricket-net.jpeg',
-    colSpan: 'col-span-1 md:col-span-1 lg:col-span-4',
   },
   {
     id: 'artificial-grass',
     title: 'Artificial Turf',
     description: 'Lush, maintenance-free landscaping solutions for modern terraces.',
     image: '/images/services/artificial_grass_turf.jpeg',
-    colSpan: 'col-span-1 md:col-span-2 lg:col-span-8',
   }
 ];
 
@@ -67,108 +63,124 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <div className="flex flex-col w-full font-montserrat overflow-hidden bg-[#0A192F] text-[#F8F9FA]">
+    <div className="flex flex-col w-full bg-white text-slate-800">
       
-      {/* Full-Bleed Cinematic Hero Section */}
-      <section className="relative w-full h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
-        {/* Background Image with Ken Burns effect */}
+      {/* SaaS Hero Section with Form */}
+      <section className="relative w-full pt-32 pb-20 md:pt-40 md:pb-32 flex items-center overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-bg.jpg"
-            alt="Premium Balcony View"
+            alt="City Skyline"
             fill
             priority
-            className="object-cover animate-kenburns transform-gpu"
+            className="object-cover"
           />
-          {/* Heavy cinematic Midnight overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A192F]/90 via-[#0A192F]/60 to-[#0A192F] mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-[#0A192F]/30"></div>
+          {/* Dark overlay for contrast */}
+          <div className="absolute inset-0 bg-slate-900/70 mix-blend-multiply"></div>
         </div>
 
-        <div className="container relative z-10 px-4 md:px-8 text-center flex flex-col items-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 fill-mode-both mt-20">
-          
-          <div className="inline-flex items-center gap-4 mb-8">
-            <span className="w-12 h-px bg-[#C87A54]"></span>
-            <span className="text-[#C87A54] text-xs font-bold tracking-[0.4em] uppercase">Premium Safety Solutions</span>
-            <span className="w-12 h-px bg-[#C87A54]"></span>
-          </div>
-          
-          <h1 className="font-cormorant text-6xl sm:text-8xl md:text-9xl text-white tracking-tight leading-[0.95] mb-8">
-            Safety, <br />
-            <span className="italic text-gradient-copper">Unseen.</span>
-          </h1>
-          
-          <p className="text-lg sm:text-xl text-[#F8F9FA]/80 leading-relaxed font-light max-w-2xl mx-auto mb-12">
-            We build high-strength safety nets and invisible grills that protect your family without ruining the beautiful view from your balcony.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-8 items-center justify-center">
-            <button className="group relative px-12 py-5 bg-[#C87A54] text-[#0A192F] font-bold text-xs tracking-[0.3em] uppercase overflow-hidden transition-all hover:bg-[#F8F9FA] shadow-[0_0_40px_rgba(200,122,84,0.3)]">
-              <span className="relative z-10 flex items-center justify-center">
-                Get a Free Quote <ArrowRight className="ml-4 w-4 h-4 group-hover:translate-x-2 transition-transform" />
-              </span>
-            </button>
+        <div className="container relative z-10 px-4 md:px-8 mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
             
-            <button className="group flex items-center gap-4 text-[#F8F9FA] font-medium text-xs uppercase tracking-[0.3em] hover:text-[#C87A54] transition-colors py-4">
-              <span className="w-14 h-14 flex items-center justify-center border border-[#F8F9FA]/20 rounded-full group-hover:border-[#C87A54] transition-colors">
-                <PlayCircle className="w-5 h-5" />
-              </span>
-              How We Work
-            </button>
+            {/* Left Content */}
+            <div className="w-full lg:w-3/5 text-white">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+                Invisible Safety, <br />
+                Visible Peace of Mind
+              </h1>
+              <p className="text-xl sm:text-2xl text-slate-200 mb-8 font-medium">
+                Best price in Bangalore | 5,000+ satisfied homes
+              </p>
+              
+              {/* Trust Checkmarks */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 text-lg font-medium">
+                <div className="flex items-center gap-3">
+                  <div className="bg-blue-500 rounded-full p-1"><CheckSquare className="w-4 h-4 text-white" /></div>
+                  Same-Day Installation
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="bg-blue-500 rounded-full p-1"><CheckSquare className="w-4 h-4 text-white" /></div>
+                  5000+ Installations
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="bg-blue-500 rounded-full p-1"><CheckSquare className="w-4 h-4 text-white" /></div>
+                  Best Price Guarantee
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="bg-blue-500 rounded-full p-1"><CheckSquare className="w-4 h-4 text-white" /></div>
+                  Premium Quality Materials
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="tel:+919902299696" className="flex items-center justify-center gap-3 bg-white text-slate-900 font-bold px-8 py-4 rounded-full hover:bg-slate-100 transition-colors shadow-lg text-lg">
+                  <PhoneCall className="w-5 h-5" /> Call Now
+                </a>
+                <a href="https://wa.me/919902299696" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 bg-[#25D366] text-white font-bold px-8 py-4 rounded-full hover:bg-[#20bd5a] transition-colors shadow-lg text-lg">
+                  Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            {/* Right Form Card */}
+            <div className="w-full lg:w-2/5 max-w-md mx-auto lg:ml-auto">
+              <div className="bg-white rounded-2xl p-8 shadow-2xl">
+                <h3 className="text-3xl font-bold text-center text-[#3B82F6] mb-6">Request a Call Back</h3>
+                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                  <div>
+                    <input 
+                      type="text" 
+                      placeholder="Your Name" 
+                      className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3B82F6] transition-all"
+                    />
+                  </div>
+                  <div>
+                    <input 
+                      type="tel" 
+                      placeholder="Your Phone" 
+                      className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3B82F6] transition-all"
+                    />
+                  </div>
+                  <button className="w-full bg-[#3B82F6] text-white font-bold text-lg py-4 rounded-lg hover:bg-blue-600 transition-colors shadow-md mt-2">
+                    Request Now
+                  </button>
+                </form>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* NEW: CTA Trust Strip */}
-      <div className="bg-[#C87A54] py-4 relative z-20 shadow-xl">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-wrap justify-center sm:justify-between items-center text-[#0A192F] font-bold text-xs sm:text-sm tracking-[0.2em] uppercase gap-4 text-center">
-            <div className="flex items-center gap-2"><Award className="w-5 h-5" /> Trusted by 10,000+ Indian Homes</div>
-            <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-[#0A192F]/30"></div>
-            <div className="flex items-center gap-2"><ShieldCheck className="w-5 h-5" /> 5-Year Replacement Warranty</div>
-            <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-[#0A192F]/30"></div>
-            <div className="flex items-center gap-2"><CheckSquare className="w-5 h-5" /> Free Site Inspection</div>
-          </div>
-        </div>
-      </div>
+      {/* Our Products Section */}
+      <section id="services" className="py-20 bg-[#F8FAFC]">
+        <div className="container mx-auto px-4 md:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-4">Our Products</h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-16 font-medium">
+            Explore our range of premium safety solutions — from invisible grills to anti-bird netting, sports nets, and balcony hangers. Designed for durability, safety, and elegance.
+          </p>
 
-      {/* Services Grid Section - Moved Up! */}
-      <section id="services" className="py-24 sm:py-32 bg-[#071324] relative">
-        <div className="absolute inset-0 bg-net pointer-events-none opacity-40"></div>
-        
-        <div className="container px-4 md:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-            <div className="max-w-2xl space-y-6">
-              <div className="flex items-center gap-4">
-                <span className="text-[#C87A54] font-bold tracking-[0.3em] uppercase text-[10px]">What We Offer</span>
-                <span className="w-16 h-px bg-[#C87A54]/50"></span>
-              </div>
-              <h2 className="font-cormorant text-5xl sm:text-7xl text-white tracking-tight">
-                Our Services
-              </h2>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {services.map((service, idx) => (
-              <div key={service.id} className={`${service.colSpan} group relative h-[450px] sm:h-[600px] overflow-hidden border border-[#F8F9FA]/5 bg-[#0B1A3A]`}>
-                <Image 
-                  src={service.image} 
-                  alt={service.title} 
-                  fill 
-                  className="object-cover opacity-60 lg:opacity-50 grayscale-0 lg:grayscale lg:group-hover:grayscale-0 lg:group-hover:opacity-100 transition-all duration-[1500ms] lg:group-hover:scale-110" 
-                />
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-[#0A192F]/70 to-transparent opacity-90 lg:group-hover:opacity-70 transition-opacity duration-[1500ms]"></div>
-                
-                <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-14 transform translate-y-0 lg:translate-y-8 lg:group-hover:translate-y-0 transition-transform duration-[1000ms] ease-out">
-                  <h3 className="font-cormorant text-3xl sm:text-5xl text-white mb-4 sm:mb-6 tracking-tight">{service.title}</h3>
-                  <p className="text-[#F8F9FA]/80 text-sm sm:text-base leading-relaxed mb-6 sm:mb-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-[1000ms] delay-200 max-w-md font-light">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+            {services.map((service) => (
+              <div key={service.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-slate-100 group">
+                <div className="relative h-64 overflow-hidden">
+                  <Image 
+                    src={service.image} 
+                    alt={service.title} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-slate-800 mb-3">{service.title}</h3>
+                  <p className="text-slate-600 leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#C87A54]/50 flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-[1000ms] delay-300 bg-[#C87A54]/20 backdrop-blur-sm">
-                    <ArrowRight className="text-[#C87A54] w-5 h-5 -rotate-45" />
-                  </div>
+                  <button className="text-[#3B82F6] font-bold hover:text-blue-700 transition-colors flex items-center gap-2">
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
             ))}
@@ -176,43 +188,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About / Philosophy Section */}
-      <section id="about" className="py-24 sm:py-32 relative bg-[#0A192F]">
-        <div className="container px-4 md:px-8 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+      {/* About Section */}
+      <section id="about" className="py-20 bg-white">
+        <div className="container px-4 md:px-8 mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
             
-            <div className="lg:col-span-6 relative h-[500px] sm:h-[700px] w-full order-2 lg:order-1">
-              <div className="absolute left-0 top-10 w-[85%] h-[90%] overflow-hidden rounded-sm">
-                <Image src="/images/indian_family_balcony.png" alt="Indian Family Safely Enjoying Balcony" fill className="object-cover transition-all duration-[2000ms] ease-in-out" />
-                <div className="absolute inset-0 bg-[#0A192F]/20 hover:bg-transparent transition-colors duration-[2000ms]"></div>
-              </div>
-              <div className="absolute right-0 bottom-0 w-[55%] h-[45%] overflow-hidden border border-[#C87A54]/20 shadow-2xl rounded-sm">
-                <Image src="/images/project1.jpeg" alt="Invisible Grill Details" fill className="object-cover" />
-              </div>
+            <div className="lg:w-1/2 relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl">
+              <Image src="/images/indian_family_balcony.png" alt="Indian Family Safely Enjoying Balcony" fill className="object-cover" />
             </div>
 
-            <div className="lg:col-span-6 space-y-12 order-1 lg:order-2">
-              <div className="space-y-8">
-                <div className="flex items-center gap-4">
-                  <span className="text-[#C87A54] font-bold tracking-[0.3em] uppercase text-[10px]">Our Story</span>
-                  <span className="w-16 h-px bg-[#C87A54]/50"></span>
-                </div>
-                <h2 className="font-cormorant text-5xl sm:text-7xl text-white leading-[1.05]">
-                  Enjoy your balcony safely with your <span className="italic text-gradient-copper">family.</span>
-                </h2>
-                <p className="text-lg sm:text-xl text-[#F8F9FA]/70 leading-relaxed font-light">
-                  We believe you shouldn't have to choose between a beautiful view and the safety of your children or pets. By using marine-grade 316 stainless steel, we install barriers that are practically invisible to the eye but incredibly strong against pressure.
-                </p>
+            <div className="lg:w-1/2 space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-[#3B82F6] rounded-full font-bold text-sm">
+                <ShieldCheck className="w-4 h-4" /> Trusted Safety Experts
               </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+                Enjoy your balcony safely with your family.
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed">
+                We believe you shouldn't have to choose between a beautiful view and the safety of your children or pets. By using marine-grade 316 stainless steel, we install barriers that are practically invisible to the eye but incredibly strong against pressure.
+              </p>
 
-              <div className="grid grid-cols-2 gap-12 pt-12 border-t border-[#F8F9FA]/10">
+              <div className="grid grid-cols-2 gap-8 pt-8 border-t border-slate-100">
                 <div>
-                  <div className="font-cormorant text-6xl sm:text-7xl text-white mb-4">15<span className="text-[#C87A54]">+</span></div>
-                  <div className="text-[10px] font-bold text-[#F8F9FA]/40 uppercase tracking-[0.3em]">Years Expertise</div>
+                  <div className="text-5xl font-extrabold text-[#3B82F6] mb-2">15+</div>
+                  <div className="font-bold text-slate-500 uppercase tracking-wide">Years Expertise</div>
                 </div>
                 <div>
-                  <div className="font-cormorant text-6xl sm:text-7xl text-white mb-4">10<span className="text-[#C87A54]">k</span></div>
-                  <div className="text-[10px] font-bold text-[#F8F9FA]/40 uppercase tracking-[0.3em]">Projects Delivered</div>
+                  <div className="text-5xl font-extrabold text-[#3B82F6] mb-2">10k</div>
+                  <div className="font-bold text-slate-500 uppercase tracking-wide">Projects Delivered</div>
                 </div>
               </div>
             </div>
@@ -222,167 +225,132 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section id="why-us" className="py-24 sm:py-32 relative bg-[#071324]">
-        <div className="absolute inset-0 bg-net pointer-events-none opacity-40"></div>
-        <div className="container relative z-10 px-4 md:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
-            <div className="flex justify-center items-center gap-4">
-              <span className="w-12 h-px bg-[#C87A54]/50"></span>
-              <span className="text-[#C87A54] font-bold tracking-[0.3em] uppercase text-[10px]">Why Choose Us</span>
-              <span className="w-12 h-px bg-[#C87A54]/50"></span>
-            </div>
-            <h2 className="font-cormorant text-5xl sm:text-6xl text-white tracking-tight">
-              Uncompromising <span className="italic text-gradient-copper">Standards.</span>
-            </h2>
+      <section id="why-us" className="py-20 bg-[#F8FAFC]">
+        <div className="container px-4 md:px-8 mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-6">Why Choose Us</h2>
+            <p className="text-xl text-slate-600 font-medium">Uncompromising standards for your family's safety.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="midnight-glass p-12 text-center group hover:-translate-y-2 transition-transform duration-500">
-              <div className="w-20 h-20 mx-auto rounded-full bg-[#C87A54]/10 border border-[#C87A54]/30 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                <Anchor className="w-8 h-8 text-[#C87A54]" />
+            <div className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-lg transition-shadow border border-slate-100 text-center">
+              <div className="w-16 h-16 mx-auto rounded-xl bg-blue-50 flex items-center justify-center mb-6 text-[#3B82F6]">
+                <Anchor className="w-8 h-8" />
               </div>
-              <h3 className="font-cormorant text-3xl text-white mb-4">Marine Grade Steel</h3>
-              <p className="text-[#F8F9FA]/60 font-light leading-relaxed">
-                We exclusively use 316-grade stainless steel. It is highly rust-resistant, incredibly durable, and built to last in the Indian climate.
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Marine Grade Steel</h3>
+              <p className="text-slate-600 leading-relaxed">
+                We exclusively use 316-grade stainless steel. It is highly rust-resistant, incredibly durable, and built to last.
               </p>
             </div>
-            <div className="midnight-glass p-12 text-center group hover:-translate-y-2 transition-transform duration-500">
-              <div className="w-20 h-20 mx-auto rounded-full bg-[#C87A54]/10 border border-[#C87A54]/30 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                <CheckSquare className="w-8 h-8 text-[#C87A54]" />
+            <div className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-lg transition-shadow border border-slate-100 text-center">
+              <div className="w-16 h-16 mx-auto rounded-xl bg-blue-50 flex items-center justify-center mb-6 text-[#3B82F6]">
+                <Award className="w-8 h-8" />
               </div>
-              <h3 className="font-cormorant text-3xl text-white mb-4">5-Year Warranty</h3>
-              <p className="text-[#F8F9FA]/60 font-light leading-relaxed">
-                Total peace of mind. Every installation is backed by an unconditional 5-year structural warranty against defects and tension loss.
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">5-Year Warranty</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Total peace of mind. Every installation is backed by an unconditional 5-year structural warranty.
               </p>
             </div>
-            <div className="midnight-glass p-12 text-center group hover:-translate-y-2 transition-transform duration-500">
-              <div className="w-20 h-20 mx-auto rounded-full bg-[#C87A54]/10 border border-[#C87A54]/30 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                <Crosshair className="w-8 h-8 text-[#C87A54]" />
+            <div className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-lg transition-shadow border border-slate-100 text-center">
+              <div className="w-16 h-16 mx-auto rounded-xl bg-blue-50 flex items-center justify-center mb-6 text-[#3B82F6]">
+                <Wrench className="w-8 h-8" />
               </div>
-              <h3 className="font-cormorant text-3xl text-white mb-4">Clean Installation</h3>
-              <p className="text-[#F8F9FA]/60 font-light leading-relaxed">
-                No mess, no damage to your walls. Our technicians use advanced anchoring techniques for a perfectly flush and clean fit.
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Clean Installation</h3>
+              <p className="text-slate-600 leading-relaxed">
+                No mess, no damage to your walls. Our technicians use advanced anchoring techniques for a flush fit.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mid-Page Parallax CTA Section */}
-      <section className="relative py-32 w-full bg-fixed bg-center bg-cover flex items-center justify-center overflow-hidden" style={{ backgroundImage: "url('/images/project2.jpeg')" }}>
-        {/* Deep overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A192F]/95 via-[#0A192F]/80 to-[#0A192F]/95 mix-blend-multiply"></div>
-        
-        <div className="container relative z-10 px-4 md:px-8">
-          <div className="max-w-4xl mx-auto text-center space-y-10">
-            <div className="w-20 h-20 mx-auto rounded-full bg-[#C87A54]/10 border border-[#C87A54]/30 flex items-center justify-center backdrop-blur-sm">
-              <ShieldCheck className="w-10 h-10 text-[#C87A54]" />
-            </div>
-            
-            <h2 className="font-cormorant text-5xl sm:text-6xl md:text-7xl text-white leading-[1.1]">
-              Ready to secure your home with <span className="italic text-gradient-copper">absolute confidence?</span>
-            </h2>
-            
-            <p className="text-xl text-[#F8F9FA]/70 font-light max-w-2xl mx-auto leading-relaxed">
-              Join thousands of families who have chosen UrbanCrew for premium, invisible, and highly durable safety solutions.
-            </p>
-            
-            <div className="pt-4 flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button className="group relative px-10 py-5 bg-[#C87A54] text-[#0A192F] font-bold text-xs tracking-[0.3em] uppercase overflow-hidden transition-all hover:bg-[#F8F9FA] shadow-[0_0_30px_rgba(200,122,84,0.3)]">
-                <span className="relative z-10 flex items-center justify-center">
-                  Book Free Inspection <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                </span>
-              </button>
-              <a href="tel:+919900551942" className="group flex items-center gap-3 text-[#F8F9FA] font-medium text-xs uppercase tracking-[0.2em] hover:text-[#C87A54] transition-colors py-4">
-                <PhoneCall className="w-5 h-5 text-[#C87A54]" />
-                +91 99005 51942
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Timeline Section (Light Theme) */}
-      <section id="process" className="py-24 sm:py-32 relative bg-[#F8F9FA] text-[#0A192F]">
-        <div className="container relative z-10 px-4 md:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 lg:mb-24 gap-8">
-            <div className="max-w-2xl space-y-6">
-              <div className="flex items-center gap-4">
-                <span className="text-[#C87A54] font-bold tracking-[0.3em] uppercase text-[10px]">How We Work</span>
-                <span className="w-16 h-px bg-[#C87A54]/50"></span>
-              </div>
-              <h2 className="font-cormorant text-5xl sm:text-7xl tracking-tight">
-                Installation Process
-              </h2>
-            </div>
+      {/* Process Section */}
+      <section id="process" className="py-20 bg-white">
+        <div className="container px-4 md:px-8 mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-6">Installation Process</h2>
+            <p className="text-xl text-slate-600 font-medium">Quick, professional, and reliable deployment.</p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
             
             {/* Timeline Left */}
-            <div className="lg:col-span-7 relative border-l border-[#C87A54]/30 pl-8 md:pl-12 ml-4 md:ml-8 space-y-16">
+            <div className="lg:w-1/2 relative border-l-2 border-blue-100 pl-8 ml-4 md:ml-8 space-y-12">
               <div className="relative">
-                <div className="absolute -left-[54px] md:-left-[70px] w-10 h-10 md:w-12 md:h-12 bg-[#F8F9FA] border-2 border-[#C87A54] rounded-full flex items-center justify-center text-[#C87A54] font-bold">1</div>
-                <h3 className="font-cormorant text-3xl md:text-4xl mb-4">Free Site Inspection</h3>
-                <p className="text-[#0A192F]/70 font-light leading-relaxed max-w-2xl">
+                <div className="absolute -left-[41px] w-8 h-8 bg-[#3B82F6] rounded-full flex items-center justify-center text-white font-bold shadow-md ring-4 ring-white">1</div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">Free Site Inspection</h3>
+                <p className="text-slate-600 leading-relaxed">
                   We start with a free visit to your home. Our experts will understand your safety needs, measure your balcony space perfectly, and provide a transparent quote.
                 </p>
               </div>
               <div className="relative">
-                <div className="absolute -left-[54px] md:-left-[70px] w-10 h-10 md:w-12 md:h-12 bg-[#F8F9FA] border-2 border-[#C87A54] rounded-full flex items-center justify-center text-[#C87A54] font-bold">2</div>
-                <h3 className="font-cormorant text-3xl md:text-4xl mb-4">Custom Measurement & Prep</h3>
-                <p className="text-[#0A192F]/70 font-light leading-relaxed max-w-2xl">
-                  All materials are customized to your exact balcony size. We use highly durable 316-grade stainless steel cables that are pre-tensioned to ensure maximum safety.
+                <div className="absolute -left-[41px] w-8 h-8 bg-[#3B82F6] rounded-full flex items-center justify-center text-white font-bold shadow-md ring-4 ring-white">2</div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">Custom Measurement & Prep</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  All materials are customized to your exact balcony size. We use highly durable 316-grade stainless steel cables that are pre-tensioned.
                 </p>
               </div>
               <div className="relative">
-                <div className="absolute -left-[54px] md:-left-[70px] w-10 h-10 md:w-12 md:h-12 bg-[#C87A54] border-2 border-[#C87A54] rounded-full flex items-center justify-center text-[#F8F9FA] font-bold">3</div>
-                <h3 className="font-cormorant text-3xl md:text-4xl mb-4">Quick & Clean Installation</h3>
-                <p className="text-[#0A192F]/70 font-light leading-relaxed max-w-2xl">
-                  Our professional team arrives and safely installs the system within a few hours. We clean up after ourselves, leaving you with absolute safety and no mess.
+                <div className="absolute -left-[41px] w-8 h-8 bg-[#3B82F6] rounded-full flex items-center justify-center text-white font-bold shadow-md ring-4 ring-white">3</div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">Quick & Clean Installation</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Our professional team arrives and safely installs the system within a few hours. We clean up after ourselves.
                 </p>
               </div>
             </div>
 
             {/* Image Right */}
-            <div className="lg:col-span-5 relative h-[500px] w-full hidden lg:block border border-[#0A192F]/5 shadow-2xl overflow-hidden group">
+            <div className="lg:w-1/2 relative h-[500px] w-full hidden lg:block rounded-2xl shadow-xl overflow-hidden">
               <Image 
                 src="/images/process_installation.png" 
                 alt="Professional Technicians Installing Grills" 
                 fill 
-                className="object-cover group-hover:scale-105 transition-transform duration-[2000ms]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/40 to-transparent pointer-events-none mix-blend-multiply"></div>
             </div>
 
           </div>
         </div>
       </section>
 
+      {/* Mid-Page CTA Section */}
+      <section className="bg-[#1E3A8A] py-20 text-white text-center">
+        <div className="container px-4 md:px-8 mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to secure your home?</h2>
+          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+            Join thousands of families who have chosen Urban Invisible Grills for premium, invisible, and highly durable safety solutions.
+          </p>
+          <div className="flex justify-center gap-4">
+            <button className="bg-white text-[#1E3A8A] font-bold px-8 py-4 rounded-lg hover:bg-slate-100 transition-colors shadow-lg text-lg">
+              Request a Quote
+            </button>
+            <a href="tel:+919902299696" className="bg-[#3B82F6] text-white font-bold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors shadow-lg text-lg flex items-center gap-2">
+              <PhoneCall className="w-5 h-5" /> Call Us
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Reviews Section */}
-      <div className="bg-[#0A192F] pt-20 border-t border-[#F8F9FA]/5">
+      <div className="bg-[#F8FAFC] pt-20 pb-10 border-t border-slate-100">
         <ReviewsMarquee />
       </div>
 
-      {/* FAQ Section (Light Theme) */}
-      <section id="faq" className="py-24 sm:py-32 bg-[#F8F9FA] text-[#0A192F]">
-        <div className="container px-4 md:px-8 max-w-5xl mx-auto">
-          <div className="text-center mb-16 space-y-6">
-            <div className="flex justify-center items-center gap-4">
-              <span className="w-12 h-px bg-[#C87A54]/50"></span>
-              <span className="text-[#C87A54] font-bold tracking-[0.3em] uppercase text-[10px]">Knowledge Base</span>
-              <span className="w-12 h-px bg-[#C87A54]/50"></span>
-            </div>
-            <h2 className="font-cormorant text-4xl sm:text-6xl">Frequently Asked Questions</h2>
+      {/* FAQ Section */}
+      <section id="faq" className="py-20 bg-white">
+        <div className="container px-4 md:px-8 max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg text-slate-600">Everything you need to know about our invisible grills.</p>
           </div>
 
-          <Accordion className="space-y-6">
+          <Accordion className="space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border border-[#0A192F]/10 bg-white px-6 sm:px-10 py-2 data-[state=open]:border-[#C87A54]/30 shadow-sm transition-colors">
-                <AccordionTrigger className="text-left font-cormorant text-2xl hover:text-[#C87A54] hover:no-underline transition-colors py-6">
+              <AccordionItem key={index} value={`item-${index}`} className="border border-slate-200 bg-white px-6 rounded-lg data-[state=open]:border-[#3B82F6] transition-colors shadow-sm">
+                <AccordionTrigger className="text-left font-bold text-lg text-slate-800 hover:text-[#3B82F6] hover:no-underline transition-colors py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-[#0A192F]/70 font-light leading-relaxed pb-8 text-base">
+                <AccordionContent className="text-slate-600 leading-relaxed pb-6 text-base">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -391,65 +359,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section id="contact" className="relative py-32 sm:py-48 bg-[#0A192F] overflow-hidden">
-        {/* Abstract background elements */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#C87A54]/5 rounded-full blur-[150px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
-
-        <div className="container relative z-10 px-4 md:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-24">
-            
-            <div className="lg:w-1/2 space-y-12 text-center lg:text-left">
-              <div className="inline-flex items-center gap-4">
-                <span className="text-[#C87A54] font-bold tracking-[0.3em] uppercase text-[10px]">Get In Touch</span>
-                <span className="w-16 h-px bg-[#C87A54]/50"></span>
-              </div>
-              <h2 className="font-cormorant text-6xl sm:text-8xl leading-[1] text-white">
-                Secure your <br/> <span className="italic text-gradient-copper">balcony today.</span>
-              </h2>
-              <p className="text-xl text-[#F8F9FA]/60 font-light max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                Schedule a free home inspection. Our experts will take exact measurements and provide a completely transparent consultation.
-              </p>
-              
-              <div className="flex items-center gap-8 justify-center lg:justify-start pt-8">
-                <div className="w-20 h-20 rounded-full border border-[#C87A54]/20 flex items-center justify-center bg-[#C87A54]/5">
-                  <PhoneCall className="text-[#C87A54] w-8 h-8" />
-                </div>
-                <div className="text-left">
-                  <p className="text-[10px] text-[#F8F9FA]/40 font-bold uppercase tracking-[0.3em] mb-2">Call Us Directly</p>
-                  <p className="text-4xl font-cormorant tracking-tight text-white">+91 99005 51942</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="lg:w-1/2 w-full max-w-xl mx-auto">
-              <div className="midnight-glass-solid p-10 sm:p-16 relative overflow-hidden">
-                <h3 className="font-cormorant text-4xl text-white mb-4">Request a Free Quote</h3>
-                <p className="text-[#F8F9FA]/40 font-light mb-12 text-sm tracking-wide">Quick, professional, and reliable installation.</p>
-                
-                <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
-                  <div className="space-y-10">
-                    <input type="text" placeholder="Full Name" className="w-full border-b border-[#F8F9FA]/20 bg-transparent py-4 text-white placeholder:text-white/30 focus:outline-none focus:border-[#C87A54] transition-colors font-light text-lg" />
-                    <input type="tel" placeholder="Contact Number" className="w-full border-b border-[#F8F9FA]/20 bg-transparent py-4 text-white placeholder:text-white/30 focus:outline-none focus:border-[#C87A54] transition-colors font-light text-lg" />
-                    <select className="w-full border-b border-[#F8F9FA]/20 bg-transparent py-4 text-[#F8F9FA]/50 focus:outline-none focus:border-[#C87A54] transition-colors font-light appearance-none cursor-pointer text-lg">
-                      <option value="" className="bg-[#0A192F]">Select Service</option>
-                      <option value="invisible" className="bg-[#0A192F]">Invisible Grills</option>
-                      <option value="mosquito" className="bg-[#0A192F]">Mosquito Doors</option>
-                      <option value="sports" className="bg-[#0A192F]">Sports Nets</option>
-                    </select>
-                  </div>
-                  
-                  <button type="submit" className="w-full bg-[#C87A54] hover:bg-[#F8F9FA] text-[#0A192F] h-20 transition-all font-bold uppercase tracking-[0.3em] mt-16 flex items-center justify-center group text-xs shadow-2xl">
-                    Submit Request <ArrowRight className="ml-4 w-5 h-5 group-hover:translate-x-3 transition-transform" />
-                  </button>
-                </form>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-      
+      {/* Footer is rendered in layout.tsx */}
     </div>
   );
 }
