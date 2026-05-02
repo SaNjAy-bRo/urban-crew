@@ -376,7 +376,7 @@ export default function Home() {
             <h2 className="font-cormorant text-4xl sm:text-6xl">Frequently Asked Questions</h2>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-6">
+          <Accordion className="space-y-6">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-[#0A192F]/10 bg-white px-6 sm:px-10 py-2 data-[state=open]:border-[#C87A54]/30 shadow-sm transition-colors">
                 <AccordionTrigger className="text-left font-cormorant text-2xl hover:text-[#C87A54] hover:no-underline transition-colors py-6">
