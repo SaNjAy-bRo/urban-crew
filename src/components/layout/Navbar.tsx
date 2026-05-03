@@ -33,8 +33,8 @@ export default function Navbar() {
     <>
       <div className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
         {/* Top Banner */}
-        <div className={`bg-[#0A192F] text-slate-300 py-1.5 md:py-3 transition-all duration-500 ${scrolled ? 'h-0 py-0 opacity-0 overflow-hidden' : 'opacity-100'}`}>
-          <div className="container mx-auto px-2 sm:px-4 md:px-8 flex flex-row justify-center md:justify-between items-center text-[10px] sm:text-xs md:text-sm font-semibold tracking-wide gap-3 md:gap-0">
+        <div className={`bg-[#0A192F] text-slate-300 py-3 md:py-5 transition-all duration-500 ${scrolled ? 'h-0 py-0 opacity-0 overflow-hidden' : 'opacity-100'}`}>
+          <div className="container mx-auto px-2 sm:px-4 md:px-8 flex flex-row justify-center md:justify-between items-center text-sm sm:text-base md:text-lg font-semibold tracking-wide gap-3 md:gap-0">
             <div className="flex items-center gap-1.5 md:gap-2 whitespace-nowrap">
               <span className="text-[#F97316] font-bold">10+ Years</span> of Excellence in Bangalore
             </div>
