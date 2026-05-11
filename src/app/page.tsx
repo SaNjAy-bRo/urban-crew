@@ -10,6 +10,7 @@ import ReviewsMarquee from '@/components/home/ReviewsMarquee';
 const services = [
   {
     id: 'invisible-grills',
+    slug: '/services/invisible-grills',
     title: 'Invisible Grills',
     subtitle: 'Safe & Stylish',
     description: 'Elegant, durable, and completely safe — perfect for balconies and windows.',
@@ -17,6 +18,7 @@ const services = [
   },
   {
     id: 'anti-bird-netting',
+    slug: '/services/anti-bird-netting',
     title: 'Safety & Anti-Bird Netting',
     subtitle: 'Strong & Durable',
     description: 'Protect your home from birds and debris with invisible, sturdy netting solutions.',
@@ -24,6 +26,7 @@ const services = [
   },
   {
     id: 'cricket-sports-nets',
+    slug: '/services/cricket-sports-nets',
     title: 'Cricket & Sports Nets',
     subtitle: 'Rust-Proof & Reliable',
     description: 'Durable nets for sports areas — custom installations for schools and apartments.',
@@ -31,6 +34,7 @@ const services = [
   },
   {
     id: 'clothes-hangers',
+    slug: '/services/clothes-hangers',
     title: 'Clothes Hangers',
     subtitle: 'Smart & Space-Saving',
     description: 'Space-saving and stylish retractable hanger systems for balconies.',
@@ -202,7 +206,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {services.map((service) => (
-              <div key={service.id} className="group relative h-[420px] rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl md:hover:-translate-y-2 transition-all duration-500 cursor-pointer">
+              <Link href={service.slug} key={service.id} className="group relative h-[420px] rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl md:hover:-translate-y-2 transition-all duration-500 cursor-pointer block">
                 {/* Background Image */}
                 <Image src={service.image} alt={service.title} fill className="object-cover md:group-hover:scale-110 transition-transform duration-700" />
                 
@@ -217,12 +221,12 @@ export default function Home() {
                     <p className="text-blue-100/90 text-[15px] font-medium leading-relaxed opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 md:delay-100 mb-6">
                       {service.description}
                     </p>
-                    <button className="flex items-center justify-between w-full text-white font-bold text-sm bg-white/10 backdrop-blur-md px-6 py-3.5 rounded-2xl border border-white/20 md:hover:bg-[#F97316] md:hover:text-white transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100">
+                    <span className="flex items-center justify-between w-full text-white font-bold text-sm bg-white/10 backdrop-blur-md px-6 py-3.5 rounded-2xl border border-white/20 md:hover:bg-[#F97316] md:hover:text-white transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100">
                       Learn More <ArrowRight className="w-5 h-5" />
-                    </button>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
